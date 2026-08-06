@@ -53,7 +53,24 @@ Sur la page d'accueil de ton dashboard Cloudinary (section "Account Details" ou 
 
 ---
 
-## 3. Création du fichier `.env.local`
+## 3. Configuration de OneSignal (Notifications Push)
+
+OneSignal permet d'envoyer des notifications Push aux utilisateurs (web et mobile).
+
+### Étape 3.1 : Créer l'application OneSignal
+1. Rends-toi sur [OneSignal (onesignal.com)](https://onesignal.com/) et connecte-toi.
+2. Ajoute une nouvelle application (New App/Website).
+3. Sélectionne "Web" comme plateforme.
+4. Sur la page de configuration, renseigne l'URL de ton site (pour l'instant, mets `http://localhost:3000` si tu es en développement).
+
+### Étape 3.2 : Récupérer les clés
+1. Dans les paramètres de l'application OneSignal (Settings > Keys & IDs), tu trouveras :
+   - **OneSignal App ID** -> C'est ton `NEXT_PUBLIC_ONESIGNAL_APP_ID`.
+   - **REST API Key** -> C'est ton `ONESIGNAL_REST_API_KEY`.
+
+---
+
+## 4. Création du fichier `.env.local`
 
 À la racine de ton projet (dans le dossier `job-opportunities`), crée un fichier nommé `.env.local` (ou modifie-le s'il existe déjà) et remplis-le avec les clés que tu viens de récupérer :
 
@@ -67,6 +84,10 @@ SUPABASE_SERVICE_ROLE_KEY="eyJh..."
 CLOUDINARY_CLOUD_NAME="ton-cloud-name"
 CLOUDINARY_API_KEY="ta-cle-api"
 CLOUDINARY_API_SECRET="ton-secret-api"
+
+# OneSignal
+NEXT_PUBLIC_ONESIGNAL_APP_ID="ton-app-id-onesignal"
+ONESIGNAL_REST_API_KEY="ta-cle-rest-api"
 
 # Admin Initial (optionnel, utilisé par nos scripts pour créer le premier compte)
 ADMIN_EMAIL="ton-email-admin@job-opportunities.cm"
