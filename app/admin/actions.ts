@@ -96,3 +96,20 @@ export async function pinJob(id: string, isPinned: boolean) {
   revalidatePath('/');
   revalidatePath('/admin/published');
 }
+
+/**
+ * Ignore un signalement (le marque comme TRAITE)
+ */
+export async function ignoreReport(reportId: string) {
+  const supabase = createAdminClient();
+  
+  const { error } = await supabase
+    .from('signalements')
+    .update({ statut: 'TRAITE' })
+    .eq('id', reportId);
+
+  if (error) throw new Error('Erreur traitement signalement');
+
+  revalidatePath('/admin/reports');
+}
+

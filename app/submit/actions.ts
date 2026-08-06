@@ -1,7 +1,7 @@
 'use server';
 
 import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { uploadImage } from '@/lib/cloudinary';
 import { redirect } from 'next/navigation';
 
@@ -38,6 +38,27 @@ export async function submitJob(formData: FormData) {
   const salaire_fourchette = formData.get('salaire_fourchette') as string;
   const langues = formData.get('langues') as string;
   const file = formData.get('flyer') as File | null;
+
+  // Récupération de l'IP pour le Rate Limiting
+  const headersList = await headers();
+  const forwardedFor = headersList.get('x-forwarded-for');
+  const userIp = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
+
+  // Anti-Spam : Vérifier combien d'offres cette IP a soumis dans les dernières 2 heures
+  const { count, error: countError } = await supabase
+    .from('offres_emploi')
+    .select('*', { count: 'exact', head: true })
+    .eq('submitted_by_ip', userIp)
+    .gte('created_at', new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString());
+
+  if (countError) {
+    console.error('Erreur rate limit:', countError);
+    throw new Error('Erreur de validation de sécurité.');
+  }
+
+  if (count !== null && count >= 3) {
+    throw new Error('Vous avez atteint la limite de soumissions. Veuillez réessayer dans quelques heures.');
+  }
 
   let flyer_url = null;
   let flyer_public_id = null;
@@ -76,6 +97,7 @@ export async function submitJob(formData: FormData) {
         flyer_url,
         flyer_public_id,
         statut: 'EN_ATTENTE',
+        submitted_by_ip: userIp,
       },
     ])
     .select('id')

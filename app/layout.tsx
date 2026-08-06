@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Providers } from './providers';
+import { Analytics } from '@vercel/analytics/react';
 import { OneSignalInit } from '@/components/onesignal-init';
 import './globals.css';
 
@@ -63,7 +64,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fr"
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <OneSignalInit />
+        <Analytics />
         <Providers>{children}</Providers>
       </body>
     </html>
