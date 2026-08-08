@@ -9,8 +9,8 @@ export function Footer() {
           {/* Logo & tagline */}
           <div className="flex flex-col items-center sm:items-start gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)]">
-                <Briefcase className="h-4 w-4 text-white" />
+              <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+                <img src="/logo.jpg" alt="Logo" className="h-full w-full object-cover" />
               </div>
               <span className="text-sm font-bold gradient-text">
                 job-opportunities.cm

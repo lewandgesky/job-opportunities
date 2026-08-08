@@ -13,10 +13,16 @@ import {
   LogOut,
   Menu,
   X,
+  Wand2,
 } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
 
 const NAV_ITEMS = [
+  {
+    href: '/admin/import',
+    label: 'Import IA',
+    icon: Wand2,
+  },
   {
     href: '/admin/pending',
     label: 'En attente',
@@ -62,8 +68,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 border-r border-[var(--color-border)] bg-[var(--color-bg-card)]">
         {/* Logo */}
         <div className="flex h-16 items-center gap-2.5 px-6 border-b border-[var(--color-border)]">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)]">
-            <Briefcase className="h-4 w-4 text-white" />
+          <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+            <img src="/logo.jpg" alt="Logo" className="h-full w-full object-cover" />
           </div>
           <div>
             <p className="text-sm font-bold gradient-text">Admin</p>
@@ -113,8 +119,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         {/* Header Mobile */}
         <header className="md:hidden sticky top-0 z-40 flex h-14 items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)]">
-              <Briefcase className="h-3.5 w-3.5 text-white" />
+            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm">
+              <img src="/logo.jpg" alt="Logo" className="h-full w-full object-cover" />
             </div>
             <span className="text-sm font-bold gradient-text">Admin</span>
           </div>

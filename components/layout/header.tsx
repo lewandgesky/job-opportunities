@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Briefcase, MessageCircle } from 'lucide-react';
+import { InstallPwaButton } from '@/components/install-pwa-button';
 
 export function Header() {
   return (
@@ -7,8 +8,8 @@ export function Header() {
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-md transition-transform group-hover:scale-105">
-            <Briefcase className="h-5 w-5 text-white" />
+          <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm transition-transform group-hover:scale-105">
+            <img src="/logo.jpg" alt="Job Opportunities Logo" className="h-full w-full object-cover" />
           </div>
           <div className="flex flex-col">
             <span className="text-base font-bold leading-tight gradient-text">
@@ -20,17 +21,21 @@ export function Header() {
           </div>
         </Link>
 
-        {/* CTA WhatsApp */}
-        <a
-          href="https://wa.me/237000000000?text=Bonjour%2C%20je%20souhaite%20d%C3%A9poser%20une%20offre%20d%27emploi%20sur%20job-opportunities.cm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:brightness-110 hover:shadow-lg active:scale-[0.97]"
-        >
-          <MessageCircle className="h-4 w-4" />
-          <span className="hidden sm:inline">Déposer une offre</span>
-          <span className="sm:hidden">Déposer</span>
-        </a>
+        <div className="flex items-center gap-3">
+          <InstallPwaButton />
+          
+          {/* CTA WhatsApp */}
+          <a
+            href="https://wa.me/237000000000?text=Bonjour%2C%20je%20souhaite%20d%C3%A9poser%20une%20offre%20d%27emploi%20sur%20job-opportunities.cm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2 text-sm font-semibold text-white shadow-md transition-all hover:brightness-110 hover:shadow-lg active:scale-[0.97]"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">Déposer une offre</span>
+            <span className="sm:hidden">Déposer</span>
+          </a>
+        </div>
       </div>
     </header>
   );
