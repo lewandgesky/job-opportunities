@@ -38,4 +38,3 @@ Ce projet n'est pas qu'un simple site web, c'est une application SaaS complète 
 4. **Optimiser pour la production** (SEO, temps de chargement, traitement d'images, PWA).
 
 ---
-*Conçu et développé avec passion au Cameroun.*

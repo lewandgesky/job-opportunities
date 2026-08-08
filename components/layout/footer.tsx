@@ -17,7 +17,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[var(--color-text-muted)] max-w-xs">
-              La plateforme gratuite pour trouver un emploi, un stage ou une mission freelance au Cameroun.
+              La plateforme pour trouver un emploi, un stage ou une mission freelance au Cameroun.
             </p>
           </div>
 
@@ -43,8 +43,7 @@ export function Footer() {
         {/* Divider + copyright */}
         <div className="mt-6 border-t border-[var(--color-border-light)] pt-4 text-center">
           <p className="text-xs text-[var(--color-text-muted)] flex items-center justify-center gap-1">
-            © {new Date().getFullYear()} job-opportunities.cm — Fait avec{' '}
-            <Heart className="h-3 w-3 text-red-500 inline" /> au Cameroun 🇨🇲
+            © {new Date().getFullYear()} job-opportunities.cm
           </p>
         </div>
       </div>
