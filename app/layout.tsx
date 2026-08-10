@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | job-opportunities.cm',
   },
   description:
-    'Trouvez votre prochain emploi, stage ou mission freelance au Cameroun. Plateforme 100% gratuite, rapide et accessible même en connexion lente.',
+    'Trouvez votre prochain emploi, stage ou mission freelance au Cameroun.',
   keywords: [
     'emploi',
     'Cameroun',

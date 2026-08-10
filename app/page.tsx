@@ -107,8 +107,7 @@ export default async function HomePage(props: {
                 <span className="gradient-text">emploi</span> au Cameroun
               </h1>
               <p className="text-base sm:text-lg text-[var(--color-text-secondary)] mb-6">
-                Offres d&apos;emploi, stages et missions freelance — 100% gratuit,
-                rapide et accessible même en connexion lente.
+                Offres d&apos;emploi, stages et missions freelance.
               </p>
 
               {/* Mini KPI */}
